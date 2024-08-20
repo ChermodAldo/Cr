@@ -97,14 +97,12 @@ case $1 in
     exit 0
     ;;
   Info )
-  echo "Kontol kamu kecil yah"
-    exit 0
-    ;;
-esac
-
 echo "├───► VIP Status: $VIP_STATUS_COLOR"
 echo "├───► Information Id: $DEVICE_ID_COLOR"
 echo "└───► Sponsor: @Chermodsc"
+    exit 0
+    ;;
+esac
 
 vip_user() {
     echo ""
