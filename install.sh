@@ -1,5 +1,4 @@
-source "$FUNCTION"
-source "$(dirname "$0")/axeron.prop"
+$AXFUN
 
 print() {
     local text="$1"
