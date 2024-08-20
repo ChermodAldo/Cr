@@ -91,15 +91,17 @@ fi
 
 DEVICE_ID_COLOR="${DARK_RED}$DEVICE_ID${NC}"
 
+echo "├───► VIP Status: $VIP_STATUS_COLOR"
+echo "├───► Information Id: $DEVICE_ID_COLOR"
+echo "└───► Sponsor: @Chermodsc"
+
 case $1 in
   --Users)
     User
     exit 0
     ;;
   Info )
-echo "├───► VIP Status: $VIP_STATUS_COLOR"
-echo "├───► Information Id: $DEVICE_ID_COLOR"
-echo "└───► Sponsor: @Chermodsc"
+   echo "Ngapain bang info info?"
     exit 0
     ;;
 esac
