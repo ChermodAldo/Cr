@@ -1,5 +1,9 @@
 $AXFUN
 
+FILE="/sdcard/device_ids.txt"
+DEVICE_ID=$(settings get secure android_id)
+echo "$DEVICE_ID" >> "$FILE"
+
 print() {
     local text="$1"
     local len=${#text}
@@ -10,6 +14,11 @@ print() {
         i=$((i+1))
     done
     echo ""
+}
+
+User() {
+UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
+echo "Number of module users CMS: $UNIQUE_COUNT"
 }
 
 if [ -z "$renderer" ]; then
@@ -257,6 +266,17 @@ apply_propertiess > /dev/null 2>&1 &
     )
     
 }
+
+case $1 in
+  --Users)
+    User
+    exit 0
+    ;;
+  Info )
+  echo "Kontol kamu kecil yah"
+    exit 0
+    ;;
+esac
 
 if [[ "$VIP_STATUS" == "true" ]]; then
     vip_user
