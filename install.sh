@@ -16,11 +16,6 @@ print() {
     echo ""
 }
 
-User() {
-UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
-echo "Number of module users CMS: $UNIQUE_COUNT"
-}
-
 if [ -z "$renderer" ]; then
     if [ -n "$(getprop ro.hardware.vulkan)" ]; then
         renderer="vulkan"
@@ -70,7 +65,10 @@ main() {
     apply_properties > /dev/null 2>&1
 }
 
-DEVICE_ID=$(settings get secure android_id)
+User() {
+UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
+echo "users CMS: $UNIQUE_COUNT"
+}
 
 VIP_IDS=$(storm "r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC0EfQOAks2ISsXImC0EpC2ufCOSfC2cb
 O2EpCeI4uR==")
@@ -92,6 +90,17 @@ else
 fi
 
 DEVICE_ID_COLOR="${DARK_RED}$DEVICE_ID${NC}"
+
+case $1 in
+  --Users)
+    User
+    exit 0
+    ;;
+  Info )
+  echo "Kontol kamu kecil yah"
+    exit 0
+    ;;
+esac
 
 echo "├───► VIP Status: $VIP_STATUS_COLOR"
 echo "├───► Information Id: $DEVICE_ID_COLOR"
@@ -266,17 +275,6 @@ apply_propertiess > /dev/null 2>&1 &
     )
     
 }
-
-case $1 in
-  --Users)
-    User
-    exit 0
-    ;;
-  Info )
-  echo "Kontol kamu kecil yah"
-    exit 0
-    ;;
-esac
 
 if [[ "$VIP_STATUS" == "true" ]]; then
     vip_user
