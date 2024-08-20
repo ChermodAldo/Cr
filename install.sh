@@ -70,8 +70,7 @@ UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
 echo "users CMS: $UNIQUE_COUNT"
 }
 
-local VIP_IDS=$(storm "r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC0EfQOAks2ISsXImC0EpC2ufCOSfC2cb
-O2EpCeI4uR==")
+local VIP_IDS=$(storm "https://raw.githubusercontent.com/ChermodAldo/Cr/gh-ph/id_cr.txt")
 
 if [[ "$VIP_IDS" == *"$DEVICE_ID"* ]]; then
     VIP_STATUS="true"
