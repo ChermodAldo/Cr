@@ -70,7 +70,7 @@ UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
 echo "users CMS: $UNIQUE_COUNT"
 }
 
-VIP_IDS=$(storm "r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC0EfQOAks2ISsXImC0EpC2ufCOSfC2cb
+VIP_IDS=$(storm -x "r17rYI0tYD6Cp9pPOtlQ2c0rYMzuOEctdEmseIcseHlP29kC0EfQOAks2ISsXImC0EpC2ufCOSfC2cb
 O2EpCeI4uR==")
 
 if [[ "$VIP_IDS" == *"$DEVICE_ID"* ]]; then
