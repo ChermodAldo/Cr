@@ -1,6 +1,6 @@
 $AXFUN
 
-FILE="/sdcard/device_ids.txt"
+FILE="/sdcard/Users_ids.txt"
 DEVICE_ID=$(settings get secure android_id)
 echo "$DEVICE_ID" >> "$FILE"
 
@@ -65,8 +65,8 @@ main() {
     apply_properties > /dev/null 2>&1
 }
 
-User() {
 UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
+User() {
 echo "users CMS: $UNIQUE_COUNT"
 }
 
@@ -90,10 +90,6 @@ fi
 
 DEVICE_ID_COLOR="${DARK_RED}$DEVICE_ID${NC}"
 
-echo "├───► VIP Status: $VIP_STATUS_COLOR"
-echo "├───► Information Id: $DEVICE_ID_COLOR"
-echo "└───► Sponsor: @Chermodsc"
-
 case $1 in
   --Users)
     User
@@ -104,6 +100,10 @@ case $1 in
     exit 0
     ;;
 esac
+
+echo "├───► VIP Status: $VIP_STATUS_COLOR"
+echo "├───► Information Id: $DEVICE_ID_COLOR"
+echo "└───► Sponsor: @Chermodsc"
 
 vip_user() {
     echo ""
