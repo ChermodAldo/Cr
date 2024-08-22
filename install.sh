@@ -1,6 +1,6 @@
 $AXFUN
 
-FILE="/sdcard/device_ids.txt"
+FILE="/sdcard/user_ids.txt"
 DEVICE_ID=$(settings get secure android_id)
 
 if ! grep -q "$DEVICE_ID" "$FILE"; then
