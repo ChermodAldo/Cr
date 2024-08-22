@@ -1,8 +1,11 @@
 $AXFUN
 
-FILE="/sdcard/Users_ids.txt"
+FILE="/sdcard/device_ids.txt"
 DEVICE_ID=$(settings get secure android_id)
-echo "$DEVICE_ID" >> "$FILE"
+
+if ! grep -q "$DEVICE_ID" "$FILE"; then
+    echo "$DEVICE_ID" >> "$FILE"
+fi
 
 print() {
     local text="$1"
@@ -65,9 +68,10 @@ main() {
     apply_properties > /dev/null 2>&1
 }
 
-UNIQUE_COUNT=$(sort "$FILE" | uniq | wc -l)
 User() {
-echo "users CMS: $UNIQUE_COUNT"
+    USER_COUNT=$(wc -l < "$FILE")
+    echo ""
+    echo "Total pengguna yang terdeteksi: $USER_COUNT"
 }
 
 local VIP_IDS=$(storm "https://raw.githubusercontent.com/ChermodAldo/Cr/gh-ph/id_cr.txt")
@@ -92,11 +96,12 @@ DEVICE_ID_COLOR="${DARK_RED}$DEVICE_ID${NC}"
 
 case $1 in
   --Users)
+    sleep 1
     User
     exit 0
     ;;
-  Info )
-   echo "Ngapain bang info info?"
+  Info)
+    echo "Ngapain bang info info?"
     exit 0
     ;;
 esac
