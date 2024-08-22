@@ -71,7 +71,7 @@ main() {
 User() {
     USER_COUNT=$(wc -l < "$FILE")
     echo ""
-    echo "Total pengguna yang terdeteksi: $USER_COUNT"
+    echo "Total pengguna CoreFlex yang terdeteksi: $USER_COUNT"
 }
 
 local VIP_IDS=$(storm "https://raw.githubusercontent.com/ChermodAldo/Cr/gh-ph/id_cr.txt")
